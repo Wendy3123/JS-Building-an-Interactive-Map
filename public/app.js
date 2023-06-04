@@ -28,11 +28,31 @@ var polygon = L.polygon([
     [51.51, -0.047]
 ]).addTo(map);
 
+//just for fun add the circle pinpoint too
+var circle = L.circle([51.508, -0.11], {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5,
+    radius: 500
+}).addTo(map);
 
 // Metro station markers
 
-marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
+marker.bindPopup("<b> Princess Wendy's world!</b><br>Wendy lives here.").openPopup();
 polygon.bindPopup("I am a polygon.");
+circle.bindPopup("I am a circle.");
 
 
 // Create red pin marker
+
+
+var redIcon = L.icon({
+    iconUrl: './assets/red-pin.png',
+
+    iconSize:     [30, 35], // size of the icon
+    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
+
+
+L.marker([51.5, -0.09], {icon: redIcon}).addTo(map);
